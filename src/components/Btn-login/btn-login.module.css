@@ -1,0 +1,13 @@
+.btn{
+    padding: 13px 15px;
+    background-color: rgb(94, 34, 243);
+    color: #f0f1f6;
+    border: none;
+    border-radius: 8px;
+}
+
+.btn:hover{
+    cursor: pointer;
+    background-color: rgb(94, 34, 243, 0.8);
+    transition: 0.2s ease-in-out;
+}

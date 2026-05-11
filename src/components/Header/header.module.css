@@ -1,0 +1,8 @@
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fdfdfe;
+    margin: 0;
+    padding: 20px 30px;
+}

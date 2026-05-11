@@ -1,0 +1,15 @@
+.mapContainer {
+    height: 500px;
+    margin-top: 10px;
+    width: 1000px;
+    border-radius: 20px;
+}
+
+.leaflet-routing-container {
+    display: none;
+}
+
+:global(.leaflet-routing-container),
+:global(.leaflet-routing-error) {
+    display: none !important;
+}

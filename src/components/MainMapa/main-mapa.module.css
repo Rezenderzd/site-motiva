@@ -1,0 +1,12 @@
+.container{
+    margin-top: 60px;
+    max-height: 1000px; 
+    margin-bottom: 50px;
+}
+
+.container h3{
+    display: flex;
+    justify-content: center;
+    color: rgb(94, 34, 243);
+    font-size: 30px;
+}

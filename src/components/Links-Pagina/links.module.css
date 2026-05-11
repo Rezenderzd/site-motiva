@@ -1,0 +1,38 @@
+.container{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    align-items: center;
+}
+
+li{
+    list-style: none;
+    color: rgb(94, 34, 243);
+    transition: 0.2;
+    width: max-content;
+    position: relative; /* Adicione esta linha */
+}
+
+li::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;    
+    width: 0;        
+    height: 2px;    
+    background-color: rgb(94, 34, 243);
+    transition:0.5s ease-in-out;
+}
+
+li:hover{
+    cursor: pointer;
+}
+
+li:hover::after {
+    width: 100%;
+}
+
+.active::after {
+    width: 100%;
+}

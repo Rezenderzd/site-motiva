@@ -1,0 +1,70 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+}
+
+.infoGeral{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+
+.containerInfo{
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 10px 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 50px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); 
+}
+
+.containerInfoRodovias{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 10px 30px;
+}
+
+.containerInfoRodovias h4{
+    color: #888;
+    font-size: 23px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: 400;
+}
+
+.containerInfoRodovias p{
+    margin: 7px;
+    color: var(--roxo);
+    font-weight: bold;
+}
+
+.textInfo{
+    font-size: 23px;
+    color: #888;
+}
+
+.textInfo > :last-child{
+    color: var(--roxo);
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+    font-size: 30px;
+}
+
+.icon{
+    font-size: 30px;
+    padding: 10px;
+    background-color: #eee;
+    border-radius: 10px;
+}

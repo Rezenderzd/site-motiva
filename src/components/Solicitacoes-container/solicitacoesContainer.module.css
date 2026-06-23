@@ -1,0 +1,97 @@
+.container{
+    width: 91.5%;
+    margin-top: 20px;
+    border-radius: 8px;
+    background-color: #fff;
+    max-height: 1000px;
+    overflow-y: hidden;
+}
+
+.headerSolicitacoes {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    padding-inline: 20px;
+    align-items: center;
+    text-align: center;
+    color: #444;
+    font-weight: bolder;
+}
+
+.divHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-inline: 50px;
+    padding-top: 10px;
+}
+
+.divInputs{
+    display: flex;
+    gap: 40px;
+}
+
+input {
+    width: 200px;
+    padding: 10px;
+    padding-left: 30px;
+    background-image: url('../../../public/lupa.png');
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 15px;
+    border-radius: 8px;
+    border: 0.5px solid #ccc;
+}
+
+.aviso{
+    display: flex;
+    font-size: 24px;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+
+.paginacaoContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #fcfcfc; /* Fundo ligeiramente cinza como o da foto */
+    border-top: 1px solid #eee;
+}
+
+.textoRegistros {
+    color: #666;
+    font-size: 14px;
+}
+
+.botoesPaginacao {
+    display: flex;
+    gap: 8px;
+}
+
+.botaoSeta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background-color: #f5f5f5;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    transition: all 0.2s ease;
+}
+
+.botaoSeta:hover:not(:disabled) {
+    background-color: #e8e8e8;
+}
+
+/* Estilo para quando o botão estiver desativado (ex: na primeira ou última página) */
+.botaoSeta:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}

@@ -8,7 +8,7 @@
 
 li{
     list-style: none;
-    color: rgb(94, 34, 243);
+    color: var(--roxo);
     transition: 0.2;
     width: max-content;
     position: relative; /* Adicione esta linha */
@@ -21,7 +21,7 @@ li::after {
     bottom: -3px;    
     width: 0;        
     height: 2px;    
-    background-color: rgb(94, 34, 243);
+    background-color: var(--roxo);
     transition:0.5s ease-in-out;
 }
 

@@ -5,49 +5,47 @@ import { MotivaContext } from '../MotivaContextProvider/Provider';
 export const Mapa = () => {
     const mapContainerRef = useRef(null);
     const mapInstanceRef = useRef(null);
-    const {coordenadas} = useContext(MotivaContext);
+    const { coordenadas, trechoSelecionado, trechos } = useContext(MotivaContext);
 
-    const latIni = parseFloat(coordenadas.inicial.lat);
-    const lngIni = parseFloat(coordenadas.inicial.lng);
-    const latFim = parseFloat(coordenadas.final.lat);
-    const lngFim = parseFloat(coordenadas.final.lng);
+    const latIni = parseFloat(coordenadas?.inicial?.lat || '-23.55052');
+    const lngIni = parseFloat(coordenadas?.inicial?.lng || '-46.633308');
+    const latFim = parseFloat(coordenadas?.final?.lat || '-23.555');
+    const lngFim = parseFloat(coordenadas?.final?.lng || '-46.633308');
+    
+    const trechoMapa = trechos?.find(t => t.id === trechoSelecionado);
 
     useEffect(() => {
-        if (!coordenadas || !coordenadas.inicial) return;
         if (mapInstanceRef.current) return;
-        if (!coordenadas.inicial.lat || !coordenadas.final.lat) {
-            console.warn("Mapa não pôde ser carregado: Coordenadas ausentes.");
-            return;
-        }
-        const latIni = parseFloat(coordenadas.inicial.lat);
-        if (isNaN(latIni)) return;
+        if (isNaN(latIni) || isNaN(lngIni)) return;
 
         const map = window.L.map(mapContainerRef.current, {
             attributionControl: false
-        }).setView([latIni, lngIni], 15)
+        }).setView([latIni, lngIni], 7);
+        
+        mapInstanceRef.current = map;
 
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+        window.L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
             attribution: '&copy; CARTO'
         }).addTo(map);
 
+        const status = trechoMapa?.status;
+        const corLinha = status === 'Em dia' ? '#2ecc71' : status === 'Alerta' ? '#ba8e23' : '#e74c3c';
 
-        L.Routing.control({
+        window.L.Routing.control({
             waypoints: [
-                L.latLng(latIni, lngIni), 
-                L.latLng(latFim, lngFim)
+                window.L.latLng(latIni, lngIni), 
+                window.L.latLng(latFim, lngFim)
             ],
             lineOptions: {
-                styles: [{ color: 'red', weight: 6, opacity: 0.8 }]
+                styles: [{ color: corLinha, weight: 6, opacity: 0.8 }]
             },
             createMarker: function() { 
-                return null; // Isso impede a criação de qualquer marcador na rota
+                return null; 
             },
             addWaypoints: false,      
-            //draggableWaypoints: true,
             itineraryClassName: 'hidden-itinerary',
             show: false,              
         }).addTo(map);
-        mapInstanceRef.current = map;
 
         return () => {
             if (mapInstanceRef.current) {
@@ -55,13 +53,13 @@ export const Mapa = () => {
                 mapInstanceRef.current = null;
             }
         };
-    }, [coordenadas]);
+    }, [coordenadas, trechoMapa, latIni, lngIni, latFim, lngFim]);
 
     return (
-            <div 
-                ref={mapContainerRef} 
-                className={style.mapContainer}
-                id='map'
-            ></div>
+        <div 
+            ref={mapContainerRef} 
+            className={style.mapContainer}
+            id='map'
+        ></div>
     );
 };

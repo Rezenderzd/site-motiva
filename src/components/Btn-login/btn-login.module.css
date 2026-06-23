@@ -1,6 +1,6 @@
 .btn{
     padding: 13px 15px;
-    background-color: rgb(94, 34, 243);
+    background-color: var(--roxo);
     color: #f0f1f6;
     border: none;
     border-radius: 8px;

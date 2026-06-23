@@ -1,108 +1,63 @@
-from flask import Flask, request, jsonify
+from flask import Flask, jsonify
 from flask_cors import CORS 
 from dotenv import load_dotenv
+import os
+from supabase import create_client, Client
+
+app = Flask(__name__)
+CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=True)
+
 
 load_dotenv()
-trechos = [
-    {
-        "trecho": "Rodo Anel",
-        "kmInicial": 0,
-        "kmFinal": 10,
-        "tipoVegetacao": "Gramínea",
-        "tamanho": 18,
-        "status": "",
-        "latitudeInicial":"46.0347",
-        "longitudeInicial":"-122.0961",
-        "latitudeFinal":"46.0345",
-        "longitudeFinal":"-122.0959"
-    },
-    {
-        "trecho": "RioSP",
-        "kmInicial": 10,
-        "kmFinal": 20,
-        "tipoVegetacao": "Arbustiva",
-        "tamanho": 29,
-        "status": "",
-        "latitudeInicial":"50.0390",
-        "longitudeInicial":"-130.0961",
-        "latitudeFinal":"50.0392",
-        "longitudeFinal":"-130.0961"
-    },
-    {
-        "trecho": "Motiva Sorocabana",
-        "kmInicial": 20,
-        "kmFinal": 30,
-        "tipoVegetacao": "Florestal",
-        "tamanho": 45,
-        "status": ""
-    },
-    {
-        "trecho": "Motiva Sorocabana",
-        "kmInicial": 10,
-        "kmFinal": 20,
-        "tipoVegetacao": "Arbustiva",
-        "tamanho": 19,
-        "status": ""
-    },
-    {
-        "trecho": "RioSP",
-        "kmInicial": 40,
-        "kmFinal": 50,
-        "tipoVegetacao": "Arbustiva",
-        "tamanho": 22,
-        "status": ""
-    },
-    {
-        "trecho": "Rodo Anel",
-        "kmInicial": 10,
-        "kmFinal": 20,
-        "tipoVegetacao": "Arbustiva",
-        "tamanho": 30,
-        "status": ""
-    },
-    {
-        "trecho": "ViaLagos",
-        "kmInicial": 40,
-        "kmFinal": 50,
-        "tipoVegetacao": "Arbustiva",
-        "tamanho": 27,
-        "status": ""
-    },
-    {
-        "trecho": "ViaLagos",
-        "kmInicial": 70,
-        "kmFinal": 80,
-        "tipoVegetacao": "Arbustiva",
-        "tamanho": 43,
-        "status": ""
-    },
-]
+SUPABASE_URL = os.getenv("SUPABASE_URL")
+SUPABASE_KEY = os.getenv("SUPABASE_KEY")
 
-def definindoStatus ():
-    for i in range (len(trechos)):
-        trechos[i]["status"] = "Em dia" if trechos[i]["tamanho"] < 20 else "Alerta" if trechos[i]["tamanho"] < 30 else "Atrasado"
+supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
-def ordenandoTrechos():
+def buscar_dados():
+    try:
+        response = supabase.table("Rodovias").select("*").execute()
+        
+        dados = response.data
+        return dados
+        
+    except Exception as e:
+        print(f"Erro ao buscar dados: {e}")
+        return None
+
+
+def definindoStatus (dados):
+    for i in range (len(dados)):
+        dados[i]["status"] = "Em dia" if dados[i]["tamanho"] < 15 else "Alerta" if dados[i]["tamanho"] < 25 else "Atrasado"
+
+def ordenandoTrechos(dados):
     prioridade = {
     "Atrasado": 0,
     "Alerta": 1,
     "Em dia": 2
     }
     trechos_ordenados = sorted(
-    trechos, 
+    dados, 
     key=lambda x: (prioridade.get(x["status"], 3), -x["tamanho"])
     )
     return trechos_ordenados
 
-app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=True)
+def atualizarTrechos(dados):
+    for trecho in dados:
+        supabase.table("Rodovias").update({"status": trecho["status"]}).eq("id", trecho["id"]).execute()
 
 @app.route('/info-trecho', methods=['GET'])
 def pegandoInfos():
-    return jsonify(trechos)
+    dados_banco = buscar_dados()
 
+    if not dados_banco:
+        return jsonify([]) 
+    
+    definindoStatus(dados_banco)
+    trechos_finais = ordenandoTrechos(dados_banco)
+    atualizarTrechos(trechos_finais)
+    
+    return jsonify(trechos_finais)
 
 if __name__== '__main__':
-    definindoStatus()
-    trechos = ordenandoTrechos()
     app.run(debug=True, port=5000)

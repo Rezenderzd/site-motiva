@@ -1,0 +1,159 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 0px 40px 10px 40px;
+    background-color: #fff;
+    border-radius: 8px;
+    height: 490px;
+    margin-top: 10px;
+    align-items: center;
+}
+
+h4{
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    font-size: 24px;
+    color: var(--roxo);
+    margin-top: 40px;
+}
+
+.status{
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
+    text-align: center;
+    align-items: center;
+    width: 100px;
+    margin: auto;
+    font-size: 15px;
+    padding: 10px;
+}
+
+.status p{
+    margin: 0;
+    padding: 0;
+}
+
+.infoRodovia{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.rodoviaIcon{
+    display: flex;
+    width: 30px;
+    height: 30px;
+    background-color: #eee;
+    padding: 10px;
+    border-radius: 8px;
+    color: var(--roxo);
+    justify-content: center;
+    align-items: center;
+}
+
+.rodoviaNome{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.rodoviaNome :first-child{
+    color: #888;
+}
+
+.rodoviaNome p{
+    margin: 0;
+}
+
+.infoKm{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.kmInicial, .kmFinal{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.kmIcon{
+    display: flex;
+    align-items: center;
+    font-size: 23px;
+    color: var(--roxo);
+}
+
+.kmTexto{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 16px;
+    gap: 5px;
+}
+
+.kmTexto p{
+    margin: 0;
+    font-weight: bold;
+}
+
+.kmTexto :first-child{
+    color: #888;
+}
+
+.tamanhoLabel, .crescimentoLabel{
+    display: flex;
+    flex-direction: row;
+    gap:8px
+}
+
+.tamanhoLabel> :first-child, .crescimentoLabel> :first-child{
+    color: var(--roxo);
+}
+
+.tamanhoLabel> :last-child, .crescimentoLabel> :last-child{
+    color: #888;
+}
+
+.infoTamanho, .infoCrescimento{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-weight: bold;
+    gap:50px;
+    width: 100%;
+}
+
+.proximoCorte{
+    display: flex;
+    flex-direction: row;
+    gap:8px;
+    align-items: center;
+    color: var(--roxo);
+    font-weight: bold;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.proximoCorteLabel {
+    display: flex;
+    flex-direction: row;
+    gap: 3px;
+    align-items: center;
+}
+
+.proximoCorte p {
+    margin: 0;
+}
+
+.proximoCorteIcon {
+    font-size: 23px;
+}

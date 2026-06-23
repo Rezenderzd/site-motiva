@@ -1,0 +1,39 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding-inline: 20px;
+    text-align: center;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
+.nomeKm{
+    font-size: 16px;
+    font-weight: 500;
+    color: #000000;
+}
+
+.nomeKm :last-child{
+    color: #999;
+}
+
+.container button{
+    justify-self: center; 
+    width: max-content;  
+    padding: 10px 20px;
+    background-color: transparent;
+    color: var(--roxo);
+    border: 1px solid var(--roxo);
+    font-size: 16px;
+    border-radius: 4px;
+    transition: 0.3s ease-in;
+}
+
+button:hover{
+    background-color: var(--roxo);
+    color: #fff;
+    cursor: pointer;
+}

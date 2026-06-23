@@ -11,7 +11,8 @@ export const Links = () =>{
         <ul className={style.container}>
             <li className={`${style.link} ${paginaAtual=='registro'? style.active:''}`} onClick={()=> setPaginaAtual('registro')}>Registro crescimento</li>
             <li className={`${style.link} ${paginaAtual=='mapa'? style.active:''}`} onClick={()=> setPaginaAtual('mapa')}>Mapa</li>
-            <li className ={`${style.link} ${paginaAtual=='menu3'? style.active:''}`}>Menu 3</li>
+            <li className ={`${style.link} ${paginaAtual=='solicitacoes'? style.active:''}`} onClick={()=> setPaginaAtual('solicitacoes')}>Solicitações Pendentes</li>
+            <li className ={`${style.link} ${paginaAtual=='historico'? style.active:''}`} onClick = {()=>setPaginaAtual('historico')}>Historico</li>
         </ul>
     )
 }

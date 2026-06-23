@@ -7,6 +7,12 @@
 .container h3{
     display: flex;
     justify-content: center;
-    color: rgb(94, 34, 243);
+    color: var(--roxo);
     font-size: 30px;
+}
+
+.divMapa{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
 }

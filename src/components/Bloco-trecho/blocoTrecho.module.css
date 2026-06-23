@@ -65,7 +65,7 @@ h2{
     padding: 10px 15px;
     white-space: nowrap;
     width: 100%;
-    background-color: rgb(94, 34, 243);
+    background-color: var(--roxo);
     color: white;
     border: none;
     border-radius: 5px;
@@ -80,9 +80,9 @@ h2{
     cursor: pointer;
     padding: 10px 15px;
     white-space: nowrap;
-    color: rgb(94, 34, 243);
+    color: var(--roxo);
     background-color:transparent;
-    border: 1px solid rgb(94, 34, 243);
+    border: 1px solid var(--roxo);
     border-radius: 5px;
     width: 100%;
 }

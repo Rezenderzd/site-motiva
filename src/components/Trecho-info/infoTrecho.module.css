@@ -5,6 +5,23 @@
     width: 80%;
 }
 
+.divInputs{
+    display: flex;
+    gap: 40px;
+}
+
+input {
+    width: 200px;
+    padding: 10px;
+    padding-left: 30px;
+    background-image: url('../../../public/lupa.png');
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 15px;
+    border-radius: 8px;
+    border: 0.5px solid #ccc;
+}
+
 h3{
     display: flex;
     justify-content: flex-start;

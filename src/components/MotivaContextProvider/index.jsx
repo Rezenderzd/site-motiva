@@ -26,7 +26,6 @@ export const MotivaProvider = ({children})=>{
 
     const [funcionariosHistorico, setFuncionariosHistorico]  = useState([])
 
-    const [usuario, setUsuario] = useState("")
 
     const getInfo = async()=>{
         try{
@@ -49,7 +48,6 @@ export const MotivaProvider = ({children})=>{
                 headers: { 'Content-Type': 'application/json' },
             })
             const data = await response.json()
-            console.log("Dados recebidos porcentagem:", data)
             setPorcentagemSolicitacoes(data)
         }catch(error){
             console.error('Erro ao receber dados do backend (solicitacoes/porcentagem):', error)
@@ -63,7 +61,6 @@ export const MotivaProvider = ({children})=>{
                 headers: { 'Content-Type': 'application/json' },
             })
             const data = await response.json()
-            console.log('Dados recebidos geral:', data)
             setSolicitacoes(data)
         }catch(error){
             console.error('Erro ao receber dados do backend (solicitacoes/geral):', error)
@@ -96,7 +93,6 @@ export const MotivaProvider = ({children})=>{
                 headers: {'Content-Type': 'application/json'},
             })
             const data = await response.json()
-            console.log("Dados recebidos rodovias:", data)
             setFuncionariosHistorico(data)
         }catch(error){
             console.log(`Erro ao pegar dashboard historico ${error}`)
@@ -105,7 +101,6 @@ export const MotivaProvider = ({children})=>{
 
     useEffect(() => {
         const emailSalvo = localStorage.getItem('email');
-        setUsuario(emailSalvo);
         if(emailSalvo !== null){
             setIsLogin(true)
             setPaginaAtual('registro')

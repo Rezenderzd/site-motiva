@@ -17,18 +17,10 @@ export const AlterarSenha = () =>{
         const [erros, setErros] = useState({})
         const [erroAlterarSenha, setErroAlterarSenha] = useState(false)
     
-        const togglePasswordVisibilityActual = () => {
-            setIsPasswordVisibleActual(!isPasswordVisibleActual);
+        const togglePasswordVisibility = (setPasswordVisible, isPasswordVisible) => {
+            setPasswordVisible(!isPasswordVisible);
         };
 
-        const togglePasswordVisibilityNew =()=>{
-            setIsPasswordVisibleNew(!isPasswordVisibleNew)
-        }
-
-        const togglePasswordVisibilityConfirm = () =>{
-            setIsPasswordVisibleConfirm(!isPasswordVisibleConfirm)
-        }
-    
         const redirectPage  = () =>{
             setPaginaAtual('login')
         }
@@ -101,7 +93,7 @@ export const AlterarSenha = () =>{
                             className={style.input}
                             onChange={(e) => setSenhaAntiga(e.target.value)}
                             ></input>
-                            {isPasswordVisibleActual? (<i class="fa-solid fa-eye" onClick={togglePasswordVisibilityActual}></i>): (<i class="fa-solid fa-eye-slash" onClick={togglePasswordVisibilityActual}></i>)}
+                            {isPasswordVisibleActual? (<i class="fa-solid fa-eye" onClick={()=>togglePasswordVisibility(setIsPasswordVisibleActual, isPasswordVisibleActual)}></i>): (<i class="fa-solid fa-eye-slash" onClick={()=>togglePasswordVisibility(setIsPasswordVisibleActual, isPasswordVisibleActual)}></i>)}
                         </div>
                         {erros.senhaAntiga? (<p style={{color: 'red', margin:0}}>{erros.senhaAntiga}</p>): null}
                     </div>
@@ -114,7 +106,7 @@ export const AlterarSenha = () =>{
                             className={style.input}
                             onChange={(e) => setSenhaNova(e.target.value)}
                             ></input>
-                            {isPasswordVisibleNew? (<i class="fa-solid fa-eye" onClick={togglePasswordVisibilityNew}></i>): (<i class="fa-solid fa-eye-slash" onClick={togglePasswordVisibilityNew}></i>)}
+                            {isPasswordVisibleNew? (<i class="fa-solid fa-eye" onClick={()=>togglePasswordVisibility(setIsPasswordVisibleNew, isPasswordVisibleNew)}></i>): (<i class="fa-solid fa-eye-slash" onClick={()=>togglePasswordVisibility(setIsPasswordVisibleNew, isPasswordVisibleNew)}></i>)}
                         </div>
                         {erros.senhaNova? (<p style={{color: 'red', margin:0}}>{erros.senhaNova}</p>): null}
                     </div>
@@ -127,7 +119,7 @@ export const AlterarSenha = () =>{
                             className={style.input}
                             onChange={(e) => setConfirmarSenhaNova(e.target.value)}
                             ></input>
-                            {isPasswordVisibleConfirm? (<i class="fa-solid fa-eye" onClick={togglePasswordVisibilityConfirm}></i>): (<i class="fa-solid fa-eye-slash" onClick={togglePasswordVisibilityConfirm}></i>)}
+                            {isPasswordVisibleConfirm? (<i class="fa-solid fa-eye" onClick={()=>togglePasswordVisibility(setIsPasswordVisibleConfirm, isPasswordVisibleConfirm)}></i>): (<i class="fa-solid fa-eye-slash" onClick={()=>togglePasswordVisibility(setIsPasswordVisibleConfirm, isPasswordVisibleConfirm)}></i>)}
                         </div>
                         {erros.confirmarSenhaNova? (<p style={{color: 'red', margin:0}}>{erros.confirmarSenhaNova}</p>): null}
                     </div>

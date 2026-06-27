@@ -56,7 +56,7 @@ def cadastrar_solicitacao():
             "longitudeInicial": dados_front.get("longitudeInicial"),
             "longitudeFinal": dados_front.get("longitudeFinal"),
             "dataSolicitacao": datetime.date.today().isoformat(),
-            "dataLimite": (datetime.date.today() + datetime.timedelta(days=10)).isoformat()
+            "dataLimite": (datetime.date.today() + datetime.timedelta(days=3)).isoformat()
         }
         
         response = supabase.table("Solicitacoes").insert(nova_solicitacao).execute()

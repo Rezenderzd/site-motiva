@@ -43,7 +43,7 @@ export const HistoricoContainer = () => {
 
     setTrechoExibir(trechoFiltrado);
     setPaginaAtual(1);
-  }, [kmPesquisado, trechoPesquisado, funcionarioPesquisado]);
+  }, [kmPesquisado, trechoPesquisado, funcionarioPesquisado, historico]);
 
   const irParaProximaPagina = () => {
     if (paginaAtual < totalPaginas) {

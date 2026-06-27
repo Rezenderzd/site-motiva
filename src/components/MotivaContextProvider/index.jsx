@@ -110,16 +110,12 @@ export const MotivaProvider = ({children})=>{
         }
 
         getInfo()
-        getDashboardSolicitacao()
-        getSolicitacoes()
-        getHistorico()
-        getDashboardHistorico()
     }, [])
 
     return(
     <MotivaContext.Provider value={{trechos, paginaAtual, setPaginaAtual, coordenadas, 
     setCoordenadas, trechoExibir, setTrechoExibir, setTrechoSelecionado,trechoSelecionado,
-    solicitacoes, setSolicitacoes, porcentagemSolicitacoes, setPorcentagemSolicitacoes, getSolicitacoes, getDashboardSolicitacao,
+    solicitacoes, setSolicitacoes, porcentagemSolicitacoes, setPorcentagemSolicitacoes,getHistorico, getDashboardHistorico, getInfo, getSolicitacoes, getDashboardSolicitacao,
     setHistorico, historico, funcionariosHistorico, isLogin, setIsLogin
     }}>
         {children}

@@ -36,7 +36,7 @@ export const SolicitacoesContainer = () => {
     });
 
     setTrechoExibir(trechoFiltrado);
-  }, [kmPesquisado, trechoPesquisado]);
+  }, [kmPesquisado, trechoPesquisado, solicitacoes]);
 
   const irParaProximaPagina = () => {
     if (paginaAtual < totalPaginas) {

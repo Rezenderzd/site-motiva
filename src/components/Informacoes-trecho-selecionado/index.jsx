@@ -18,6 +18,8 @@ export const InformacoesTrechoSelecionado = () =>{
 
     const trechoExibido = trechos.find(t =>t.id === trechoSelecionado)
 
+    const proximoCorte = Math.floor((27 - trechoExibido.tamanho) / trechoExibido.crescimentoDiario)
+
     return(
         <section className={style.container}>
             <h4>Informações do trecho</h4>
@@ -59,14 +61,14 @@ export const InformacoesTrechoSelecionado = () =>{
                     <p><FaArrowTrendUp /></p>
                     <p>Crescimento diário</p>
                 </div>
-                <p>5 cm</p>
+                <p>{trechoExibido.crescimentoDiario} cm</p>
             </div>
             <div className={style.proximoCorte}>
                 <div className={style.proximoCorteLabel}>
                     <p className={style.proximoCorteIcon}><CiCalendar /></p>
                     <p>Previsão próximo corte</p>
                 </div>
-                <p>2 dias</p>
+                <p>{proximoCorte} dias</p>
             </div>
         </section>
         

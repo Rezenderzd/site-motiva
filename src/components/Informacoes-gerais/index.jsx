@@ -9,6 +9,7 @@ export const InformacoesGeraisTrechos = () =>{
     const emDia = trechos.filter(t => t.status === 'Em dia').length;
     const emAtraso = trechos.filter(t => t.status === 'Atrasado').length;
     const emAlerta = trechos.filter(t => t.status === 'Alerta').length;
+    const sensoresEncobertos = trechos.filter(t => t.sensorEncoberto === true).length
 
     return(
         <div className={style.infos}>
@@ -27,6 +28,10 @@ export const InformacoesGeraisTrechos = () =>{
             <div className={style.total}>
                 <h3 style={{color:'#e74c3c'}}>Em atraso <i class="fa-solid fa-x"></i></h3>
                 <p>{emAtraso}</p>
+            </div>
+            <div className={style.total}>
+                <h3 style={{color:' rgb(94, 34, 243)'}}>Sensores encobertos <i class="fa-solid fa-triangle-exclamation"></i></h3>
+                <p>{sensoresEncobertos}</p>
             </div>
         </div>
     )

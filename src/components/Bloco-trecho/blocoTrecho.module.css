@@ -1,3 +1,19 @@
+.mensagemSucesso{
+    position: fixed;
+    display: none;
+    inset: 0;          
+    margin-inline: auto;
+    top: 30px;      
+    max-width: 600px;
+    padding: 10px 5px; 
+    height: 35px;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    transition: 0.3s ease;
+}
+
 .container{
     padding: 20px;
     border-radius: 8px;
@@ -17,20 +33,20 @@
     margin-bottom: 10px;
 }
 
-.container .km{
-    font-size: 16px;
-    color: #999;
-    padding-bottom: 30px;
+.kmEalerta{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 15px;
 }
 
 .container .crescimento p{
-    margin-top: 10px;
+    /* margin-top: 10px; */
     font-size: 16px;
     color: #999;
 }
 
 h2{
-    /* font-size: 1.9em; */
     margin: 0;
 }
 
@@ -60,6 +76,7 @@ h2{
     gap: 5px;
     width: 100%;
 }
+
 .btnGrama {
     cursor: pointer;
     padding: 10px 15px;
@@ -76,6 +93,20 @@ h2{
     transition: 0.2s ease-in-out;
 }
 
+.btnSensor{
+    background-color: transparent;
+    color: #ba8e23;
+    width: 100%;
+    border: 1px solid #ba8e23;
+    border-radius: 5px;
+    transition: 0.2s ease-in-out;
+}
+
+.btnSensor:hover{
+    background-color: #ba8e23;
+    color: #fff;
+}
+
 .btnDetalhes{
     cursor: pointer;
     padding: 10px 15px;
@@ -88,7 +119,9 @@ h2{
 }
 
 .btnDetalhes:hover {
-    background-color: #dadada;
+    background-color: #e0e0e0;
+    opacity: 0.6;
+    color: var(--roxo);
     transition: 0.2s ease-in-out;
 }
 

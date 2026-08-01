@@ -35,17 +35,17 @@ def pegando_dashboard():
         return jsonify([])
 
 
-@app.route('/historico/adicionar', methods = ['PUT'])
+@app.route('/historico/adicionar', methods = ['POST'])
 def adicionando_item_historico():
 
-    dados_front = request.get_json
+    dados_front = request.get_json()
     try:
         novo_corte = {
-            "id": dados_front.get("id"),
             "nomeTrecho": dados_front.get("nomeTrecho"),
             "kmInicial": dados_front.get("kmInicial"),
             "kmFinal": dados_front.get("kmFinal"),
             "funcionario": dados_front.get("funcionario"),
+            "tipoVegetacao": dados_front.get("vegetacao"),
             "dataCorte": datetime.date.today().isoformat(),
         }
         response = supabase.table("Historico").insert(novo_corte).execute()
@@ -53,6 +53,7 @@ def adicionando_item_historico():
 
     except Exception as e:
         print(f"Erro ao adicionar corte ao histórico: {e}")
+        return jsonify({"status": "erro", "mensagem": str(e)}), 500
 
 
 if __name__ == "__main__":

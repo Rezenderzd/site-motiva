@@ -51,6 +51,8 @@ export const InfoTrecho  = () =>{
                             longitudeInicial = {trecho.longitudeInicial}
                             latitudeFinal = {trecho.latitudeFinal}
                             longitudeFinal = {trecho.longitudeFinal}
+                            sensorEncoberto={trecho.sensorEncoberto}
+                            vistoriaSolicitada = {trecho.vistoriaSolicitada}
                         />
                     )
                 })}

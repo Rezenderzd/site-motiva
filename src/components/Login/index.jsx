@@ -42,7 +42,7 @@ export const Login = () =>{
             body: JSON.stringify({email, senha})
         })
         const isFuncionario = await response.json()
-        if(!isFuncionario){
+        if(!isFuncionario.status){
             setErroLogin(true)
             return
         }
@@ -85,7 +85,7 @@ export const Login = () =>{
                 </div>
                 <div className={style.checkboxDiv}>
                     <input type='checkbox'
-                    onChange={setCheck}></input>
+                    onChange={(e) => setCheck(e.target.checked)}></input>
                     <label>Lembrar-me neste dispositivo</label>
                 </div>
                 <button onClick={login} className={style.btn}>Entrar <i class="fa-solid fa-arrow-right"></i></button>

@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request 
 from flask_cors import CORS 
 from dotenv import load_dotenv
 import os
@@ -46,6 +46,18 @@ def atualizarTrechos(dados):
     for trecho in dados:
         supabase.table("Rodovias").update({"status": trecho["status"]}).eq("id", trecho["id"]).execute()
 
+
+@app.route('/solicitar-vistoria', methods = ['POST'])
+def solicitandoVistoria():
+    try:
+        dado_front = request.get_json()
+        id = dado_front.get('id')
+        supabase.table("Rodovias").update({"vistoriaSolicitada": True}).eq("id", id).execute()
+        return jsonify(True)
+    except Exception as e:
+        print(f"Algo deu errado ao solicitar a vistoria: {e}")
+        return jsonify(False)
+
 @app.route('/info-trecho', methods=['GET'])
 def pegandoInfos():
     dados_banco = buscar_dados()
@@ -58,6 +70,44 @@ def pegandoInfos():
     atualizarTrechos(trechos_finais)
     
     return jsonify(trechos_finais)
+
+@app.route('/info-trecho/altura-sensor', methods=['POST'])
+def alterando_altura_sensor_encoberto():
+    try:
+        dados_front = request.get_json()
+        id = dados_front.get('id')
+
+        supabase.table('Rodovias').update({"tamanho": 2}).eq("id", id).execute()
+        supabase.table('Rodovias').update({"sensorEncoberto": False}).eq("id",id).execute()
+        return jsonify({'status': 'sucesso'})
+    except Exception as e:
+        print(f"Erro ao alterar a altura: {e}")
+        return jsonify({'status':'erro'})
+
+@app.route('/info-trecho/vistoria', methods=['POST'])
+def retirando_vistoria():
+    try:
+        dados_front = request.get_json()
+        id = dados_front.get('id')
+
+        supabase.table('Rodovias').update({"vistoriaSolicitada": False}).eq("id",id).execute()
+        return jsonify({'status': 'sucesso'})
+    except Exception as e:
+        print(f"Erro ao mudar status sensor: {e}")
+        return jsonify({'status':'erro'})
+
+@app.route('/info-trecho/sensor', methods=['POST'])
+def retirando_sensor():
+    try:
+        dados_front = request.get_json()
+        id = dados_front.get('id')
+
+        supabase.table('Rodovias').update({"vistoriaSolicitada": False}).eq("id",id).execute()
+        supabase.table('Rodovias').update({"sensorEncoberto": False}).eq("id",id).execute()
+        return jsonify({'status': 'sucesso'})
+    except Exception as e:
+        print(f"Erro ao mudar status sensor: {e}")
+        return jsonify({'status':'erro'})
 
 if __name__== '__main__':
     app.run(debug=True, port=5000)

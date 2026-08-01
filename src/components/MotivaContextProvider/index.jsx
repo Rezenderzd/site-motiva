@@ -110,6 +110,7 @@ export const MotivaProvider = ({children})=>{
         }
 
         getInfo()
+        getSolicitacoes()
     }, [])
 
     return(

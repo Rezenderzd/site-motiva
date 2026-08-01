@@ -22,20 +22,27 @@ def verificando_login():
         email = dados.get('email')
         senha = dados.get('senha')
 
-        response = supabase.table('Funcionarios').select('senha').eq('email', email).execute()
+        response = supabase.table('Funcionarios').select('senha', 'nome', 'sobrenome').eq('email', email).execute()
 
         if not response.data:     
-            return jsonify(False), 401
+            return jsonify({'status': False, 'message': 'Usuário não encontrado'}), 401
             
-        senha_no_banco = response.data[0]['senha']
+        dados_usuario = response.data[0]
+        senha_no_banco = dados_usuario['senha']
         
         if senha != senha_no_banco:
-            return jsonify(False), 401
-            
-        return jsonify(True), 200
-    except Exception as e:
-        print(f"Não foi possível fazer a busca no banco de dados:{e}")
+            return jsonify({'status': False, 'message': 'Senha incorreta'}), 401
+        
+        nome = dados_usuario.get('nome', '')
+        sobrenome = dados_usuario.get('sobrenome', '')
+        funcionario = f"{nome} {sobrenome}".strip()
+         
+        return jsonify({'status': True, 'funcionario': funcionario}), 200
 
+    except Exception as e:
+        print(f"Não foi possível fazer a busca no banco de dados: {e}")
+        return jsonify({'status': False, 'error': 'Erro interno no servidor'}), 500
+    
 @app.route('/funcionarios/mudar-senha', methods = ['POST'])
 def mudar_senha():
     try:

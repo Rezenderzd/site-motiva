@@ -56,7 +56,8 @@ def cadastrar_solicitacao():
             "longitudeInicial": dados_front.get("longitudeInicial"),
             "longitudeFinal": dados_front.get("longitudeFinal"),
             "dataSolicitacao": datetime.date.today().isoformat(),
-            "dataLimite": (datetime.date.today() + datetime.timedelta(days=3)).isoformat()
+            "dataLimite": (datetime.date.today() + datetime.timedelta(days=3)).isoformat(),
+            "status":dados_front.get("status")
         }
         
         response = supabase.table("Solicitacoes").insert(nova_solicitacao).execute()
@@ -65,6 +66,17 @@ def cadastrar_solicitacao():
         
     except Exception as e:
         return jsonify({"erro": str(e)}), 500
+
+@app.route('/solicitacoes/excluir', methods=['POST'])
+def excluir_solicitacao():
+    dados_front = request.get_json()
+    id = dados_front.get("id")
+
+    try:
+        response = supabase.table("Solicitacoes").delete().eq("id",id).execute()
+        return jsonify({"status": "sucesso", "dados": response.data}), 201
+    except Exception as e:
+        print(f"Erro ao excluir solicitação do banco de dados: {e}")
     
 if __name__ == '__main__':
     app.run(port=5001, debug=True)

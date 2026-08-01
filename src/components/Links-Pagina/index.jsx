@@ -17,7 +17,7 @@ export const Links = () =>{
         <ul className={style.container}>
             <li className={`${style.link} ${paginaAtual=='registro'? style.active:''}`} onClick={()=> alterarPagina('registro', getInfo)}>Registro crescimento</li>
             <li className={`${style.link} ${paginaAtual=='mapa'? style.active:''}`} onClick={()=> alterarPagina('mapa')}>Mapa</li>
-            <li className ={`${style.link} ${paginaAtual=='solicitacoes'? style.active:''}`} onClick={()=> alterarPagina('solicitacoes', getSolicitacoes, getDashboardSolicitacao)}>Solicitações Pendentes</li>
+            <li className ={`${style.link} ${paginaAtual=='solicitacoes'? style.active:''}`} onClick={()=> alterarPagina('solicitacoes', getSolicitacoes, getDashboardSolicitacao)}>Solicitações de corte pendentes</li>
             <li className ={`${style.link} ${paginaAtual=='historico'? style.active:''}`} onClick = {()=> alterarPagina('historico', getHistorico, getDashboardHistorico)}>Historico</li>
         </ul>
     )

@@ -4,7 +4,7 @@ import { MotivaContext } from '../MotivaContextProvider/Provider'
 
 export const BlocoTrecho = ({id, trecho, kmInicial, kmFinal, tipoVegetacao, tamanho, status, latitudeInicial, longitudeInicial, latitudeFinal, longitudeFinal, sensorEncoberto, vistoriaSolicitada}) =>{
 
-    const {setCoordenadas, setPaginaAtual, setTrechoSelecionado, getDashboardSolicitacao, getSolicitacoes, solicitacoes} = useContext(MotivaContext)
+    const {setCoordenadas, setPaginaAtual, setTrechoSelecionado, getDashboardSolicitacao, getSolicitacoes, solicitacoes, getInfo} = useContext(MotivaContext)
     const [exibirMensagem, setExibirMensagem] = useState(false)
     const [mensagem, setMensagem] = useState('')
     const [tipo, setTipo] = useState(false)
@@ -48,6 +48,7 @@ export const BlocoTrecho = ({id, trecho, kmInicial, kmFinal, tipoVegetacao, tama
         setTimeout(() => {
             setExibirMensagem(false);
         }, 3000);
+        getInfo()
     }
 
     const enviarSolicitacao = async ()=>{

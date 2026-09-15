@@ -119,7 +119,7 @@ export const BlocoTrecho = ({id, trecho, kmInicial, kmFinal, tipoVegetacao, tama
                 </div>
                 <div className={style.kmEalerta}>
                     <p className={sensorEncoberto? style.kmEncoberto:style.km}>Km {kmInicial} ao Km {kmFinal}</p>
-                    {sensorEncoberto? <i onClick={exibirAlerta} style={{color: ' rgb(94, 34, 243)', cursor:'pointer', fontSize:'22px'}} class="fa-solid fa-triangle-exclamation"></i>: null}
+                    {/*sensorEncoberto? <i onClick={exibirAlerta} style={{color: ' rgb(94, 34, 243)', cursor:'pointer', fontSize:'22px'}} class="fa-solid fa-triangle-exclamation"></i>: null*/}
                 </div>
                 <div className={style.altura}>
                     <p>Altura atual</p>
@@ -135,7 +135,7 @@ export const BlocoTrecho = ({id, trecho, kmInicial, kmFinal, tipoVegetacao, tama
                 <div className={style.col7}>
                     {tamanho >= 15 ? <button className={style.btnGrama}onClick={enviarSolicitacao}><i class="fa-solid fa-scissors"></i> Solicitar corte</button> : null}
                     <button onClick={verDetalhes} className={style.btnDetalhes}><i class="fa-solid fa-circle-info"></i> Ver detalhes</button>
-                    {sensorEncoberto ? <button onClick={solicitarVistoria} className={style.btnSensor}><i class="fa-solid fa-user-plus"></i> Solicitar vistoria</button>: null}
+                    {/*sensorEncoberto ? <button onClick={solicitarVistoria} className={style.btnSensor}><i class="fa-solid fa-user-plus"></i> Solicitar vistoria</button>: null*/}
                 </div>
             </div>
         </>

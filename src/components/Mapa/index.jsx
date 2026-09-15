@@ -24,8 +24,9 @@ export const Mapa = () => {
         
         mapInstanceRef.current = map;
 
-        window.L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-            attribution: '&copy; CARTO'
+        window.L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>',
+            maxZoom: 20
         }).addTo(map);
 
         const status = trechoMapa?.status;

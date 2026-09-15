@@ -29,10 +29,10 @@ export const InformacoesGeraisTrechos = () =>{
                 <h3 style={{color:'#e74c3c'}}>Em atraso <i class="fa-solid fa-x"></i></h3>
                 <p>{emAtraso}</p>
             </div>
-            <div className={style.total}>
+            {/* <div className={style.total}>
                 <h3 style={{color:' rgb(94, 34, 243)'}}>Sensores encobertos <i class="fa-solid fa-triangle-exclamation"></i></h3>
                 <p>{sensoresEncobertos}</p>
-            </div>
+            </div> */}
         </div>
     )
 }

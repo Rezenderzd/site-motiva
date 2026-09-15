@@ -102,7 +102,7 @@ export const HistoricoContainer = () => {
                           <p>TRECHO</p>
                           <p>DATA CORTE</p>
                           <p>FUNCIONÁRIO</p>
-                          <p>VEGETAÇÃO</p>
+                          <p>MOTIVO</p>
             </div>
                 {itensPaginados.map((historico)=>(
                     <ItemHistorico

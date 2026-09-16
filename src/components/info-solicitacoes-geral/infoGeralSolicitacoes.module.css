@@ -1,4 +1,4 @@
-.container{
+.container {
     display: flex;
     flex-direction: row;
     justify-content: start;
@@ -6,7 +6,7 @@
     border-radius: 8px;
 }
 
-.totalSolicitacoes{
+.totalSolicitacoes {
     background-color: #fff;
     display: flex;
     justify-content: start;
@@ -15,17 +15,18 @@
     border-radius: 8px;
     padding: 20px 30px;
     width: 500px;
-    gap:20px;
+    gap: 20px;
 }
 
-.totalSolicitacoes h4, .divPorcentagem h4{
+.totalSolicitacoes h4,
+.divPorcentagem h4 {
     color: #000;
     font-size: 18px;
     font-weight: 300;
     margin: 0;
 }
 
-.divNumeroSolicitacoes{
+.divNumeroSolicitacoes {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -33,25 +34,31 @@
     width: 100%;
 }
 
-.divNumeroSolicitacoes p{
+.divNumeroSolicitacoes p {
     font-size: 30px;
     margin: 0;
     font-weight: bold;
 }
 
-.divPorcentagem{
+.divPorcentagem {
     display: flex;
     justify-content: start;
     align-items: start;
     flex-direction: column;
-    background-color:#fff;
+    background-color: #fff;
     padding: 10px 20px;
     border-radius: 8px;
     width: 1000px;
     gap: 10px;
 }
 
-.divItens{
+@media (max-width:2000px) {
+    .divPorcentagem {
+        width: 700px;
+    }
+}
+
+.divItens {
     display: flex;
     justify-content: start;
     align-items: start;
@@ -60,7 +67,7 @@
     gap: 10px;
 }
 
-.item{
+.item {
     display: flex;
     justify-content: start;
     align-items: center;
@@ -70,7 +77,7 @@
     gap: 5px;
 }
 
-.dadosItem{
+.dadosItem {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -78,7 +85,7 @@
     width: 100%;
 }
 
-.dadosItem p{
+.dadosItem p {
     margin: 0;
 }
 
@@ -88,11 +95,10 @@
     background-color: #e0e0e0;
     border-radius: 10px;
     overflow: hidden;
-  }
-  
-.progressoPreenchido {
-  height: 100%;
-  background-color:var(--roxo); 
-  transition: width 0.3s ease; 
 }
 
+.progressoPreenchido {
+    height: 100%;
+    background-color: var(--roxo);
+    transition: width 0.3s ease;
+}

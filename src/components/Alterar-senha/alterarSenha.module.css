@@ -1,10 +1,10 @@
-.main{
+.main {
     display: flex;
     height: 100dvh;
     align-items: center;
 }
 
-.container{
+.container {
     width: 1000px;
     display: flex;
     align-items: center;
@@ -14,18 +14,31 @@
     padding: 20px;
     min-height: 300px;
     flex-direction: column;
-    gap:20px;
-    border: 1px solid rgba(0,0,0, 0.2);
+    gap: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
     box-shadow: 0 0 10px 0 var(--roxo);
 }
 
-.logo{
+@media (max-height:1500px) {
+
+    .main {
+        height: 99dvh;
+    }
+
+    .container {
+        padding: 0;
+        max-height: 720px;
+        margin-bottom: 0;
+    }
+}
+
+.logo {
     margin-top: 50px;
     width: 300px;
     margin-bottom: 30px;
 }
 
-.informacoes{
+.informacoes {
     display: flex;
     width: 400px;
     justify-content: start;
@@ -34,49 +47,49 @@
     gap: 10px;
 }
 
-label{
+label {
     color: #333;
     font-weight: 500;
 }
 
-.input{
+.input {
     width: 350px;
     padding-inline: 30px;
     padding-block: 15px;
     background-image: url('../../../public/envelope.png');
 }
 
-.input:first-child{
+.input:first-child {
     background-image: url('../../../public/cadeado.png');
 }
 
-.inputSenha{
+.inputSenha {
     display: flex;
     align-items: center;
     flex-direction: row;
 }
 
-.inputSenha i{
+.inputSenha i {
     margin-left: -30px;
 }
 
-.inputSenha i:hover{
+.inputSenha i:hover {
     cursor: pointer;
 }
 
-.checkboxDiv{
+.checkboxDiv {
     display: flex;
     width: 420px;
     justify-content: flex-start;
     justify-content: flex-start;
 }
 
-.checkboxDiv input{
+.checkboxDiv input {
     width: 30px;
     accent-color: var(--roxo);
 }
 
-.btn{
+.btn {
     background-color: var(--roxo);
     border: none;
     border-radius: 8px;
@@ -87,17 +100,17 @@ label{
     color: #fff;
 }
 
-.btn p{
+.btn p {
     margin: 0;
 }
 
-.textoCadastro{
+.textoCadastro {
     padding: 40px 70px;
     border-top: 1px solid #000;
     margin: 0;
 }
 
-span{
+span {
     color: var(--roxo);
     cursor: pointer;
 }

@@ -1,17 +1,23 @@
-.container{
-    margin-top: 60px;
-    max-height: 1000px; 
+.container {
+    /* margin-top: 60px; */
+    max-height: 1000px;
     margin-bottom: 50px;
 }
 
-.container h3{
+@media (max-height:300px) {
+    .container {
+        margin-top: 10px;
+    }
+}
+
+.container h3 {
     display: flex;
     justify-content: center;
     color: var(--roxo);
     font-size: 30px;
 }
 
-.divMapa{
+.divMapa {
     display: flex;
     flex-direction: row;
     gap: 50px;

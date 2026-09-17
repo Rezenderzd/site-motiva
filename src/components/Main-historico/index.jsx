@@ -6,7 +6,12 @@ import { HistoricoContainer } from '../Historico-container'
 
 export const MainHistorico = () =>{
 
-    const{historico, funcionariosHistorico} = useContext(MotivaContext)
+    const{historico, funcionariosHistorico, getHistorico, getDashBoardHistorico} = useContext(MotivaContext)
+
+    useEffect(() => {
+        getHistorico()
+        getDashBoardHistorico()
+    },[])
 
     return(
         <section className={style.container}>

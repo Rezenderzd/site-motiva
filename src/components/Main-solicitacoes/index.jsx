@@ -1,8 +1,16 @@
+import { useContext, useEffect } from 'react'
 import { InfoGeralSolicitacoes } from '../info-solicitacoes-geral'
 import { SolicitacoesContainer } from '../Solicitacoes-container'
 import style from './mainSolicitacoes.module.css'
+import { MotivaContext } from '../MotivaContextProvider/Provider'
 
 export const MainSolicitacoes = () =>{
+    const {getSolicitacoes} = useContext(MotivaContext)
+
+    useEffect(() => {
+        getSolicitacoes()
+    },[])
+
     return(
         <section className={style.section}>
             <div className={style.header}>

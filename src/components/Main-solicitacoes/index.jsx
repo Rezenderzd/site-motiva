@@ -5,10 +5,11 @@ import style from './mainSolicitacoes.module.css'
 import { MotivaContext } from '../MotivaContextProvider/Provider'
 
 export const MainSolicitacoes = () =>{
-    const {getSolicitacoes} = useContext(MotivaContext)
+    const {getSolicitacoes, getDashboardSolicitacao} = useContext(MotivaContext)
 
     useEffect(() => {
         getSolicitacoes()
+        getDashboardSolicitacao()
     },[])
 
     return(
